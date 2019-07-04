@@ -1,5 +1,5 @@
 git add .
-set /p UserCommit=提交理由:
+set /p UserCommit="提交理由:"
 if "%UserCommit%" == "" (
     git commit -m "update at%time%"
 ) else (
