@@ -6,3 +6,4 @@ if "%UserCommit%" == "" (
     git commit -m %UserCommit%
 )
 git push
+pause
