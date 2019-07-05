@@ -12,7 +12,13 @@ def run(command):
 if(os.path.exists('./.git')):
     pass
 else:
-    run('git init')
+    choose = input('未检测到.git文件夹，是否生成(yes or no) |yes|')
+    if choose == 'y':
+        run('git init')
+    elif choose == 'yes':
+        run('git init')
+    else:
+        run('pause')
 run('git add .')
 print('请输入提交理由')
 commit = input('提交理由: ')
