@@ -30,5 +30,5 @@ except IndexError:
     if(commit == ''):
         run('git commit -m update')
     else:
-        os.system(('git commit -m '+commit))
+        os.system(('git commit -m "'+commit+'"'))
     run('git push')
