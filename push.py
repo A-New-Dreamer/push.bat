@@ -7,6 +7,10 @@ try:
             os.system('pyinstaller -F push.py')
         else:
             os.system('pip install pyinstaller')
+    elif sys.argv[1] == 'push':
+        if sys.argv[2] == '':
+            os.system('git add .')
+            os.system('git commit -m "update"')
 except IndexError:
     def run(command):
         finish = os.system(command)
