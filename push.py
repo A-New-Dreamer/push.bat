@@ -8,9 +8,17 @@ try:
         else:
             os.system('pip install pyinstaller')
     elif sys.argv[1] == 'push':
-        os.system('git add .')
-        os.system('git commit -m "update"')
-        os.system('git push')
+        if sys.argv[2] == 'tags':
+            os.system('git push --tags')
+        elif sys.argv[2] == 'all':
+            os.system('git add .')
+            os.system('git commit -m "update"')
+            os.system('git push')
+            os.system('git push --tags')
+        elif sys.argv[2] == 'commit':
+            os.system('git add .')
+            os.system('git commit -m "update"')
+            os.system('git push')
 except IndexError:
     def run(command):
         finish = os.system(command)
