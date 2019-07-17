@@ -3,8 +3,8 @@ import sys
 import time
 try:
     if sys.argv[1] == 'build':
-        if os.system('pyinstaller') == 0:
-            os.system('python -F push.py')
+        if os.system('pyinstaller -v') == 0:
+            os.system('pyinstaller -F push.py')
         else:
             os.system('pip install pyinstaller')
 except IndexError:

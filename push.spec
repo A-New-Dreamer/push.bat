@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['push.py'],
-             pathex=['G:\\my\\A New Dreamer\\push.bat'],
+             pathex=['G:\\my\\mine\\push.bat'],
              binaries=[],
              datas=[],
              hiddenimports=[],
