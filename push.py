@@ -10,6 +10,7 @@ try:
     elif sys.argv[1] == 'push':
         os.system('git add .')
         os.system('git commit -m "update"')
+        os.system('git push')
 except IndexError:
     def run(command):
         finish = os.system(command)
