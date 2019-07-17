@@ -9,13 +9,17 @@ try:
             os.system('pip install pyinstaller')
     elif sys.argv[1] == 'push':
         if sys.argv[2] == 'tags':
+            print('push tags')
             os.system('git push --tags')
         elif sys.argv[2] == 'all':
             os.system('git add .')
             os.system('git commit -m "update"')
+            print('push commit')
             os.system('git push')
+            print('push tags')
             os.system('git push --tags')
         elif sys.argv[2] == 'commit':
+            print('push commit')
             os.system('git add .')
             os.system('git commit -m "update"')
             os.system('git push')
