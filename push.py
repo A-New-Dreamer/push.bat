@@ -2,12 +2,7 @@ import os
 import sys
 import time
 try:
-    if sys.argv[1] == 'build':
-        if os.system('pyinstaller -v') == 0:
-            os.system('pyinstaller -F push.py')
-        else:
-            os.system('pip install pyinstaller')
-    elif sys.argv[1] == 'push':
+    if sys.argv[1] == 'push':
         if sys.argv[2] == 'tags':
             print('push tags')
             os.system('git push --tags')

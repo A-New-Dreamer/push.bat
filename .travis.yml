@@ -8,7 +8,8 @@ python:
 script:
 - time -p python push.py build
 before_deploy:
-- python push.py build
+- pip install pyinstaller
+- pyinstaller -F push.py
 deploy:
   provider: releases
   api_key:
