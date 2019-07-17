@@ -9,8 +9,7 @@ python:
 - '3.6'
 - 3.6-dev
 script:
-- time -p python push.py
-- python push.py build
+- time -p python push.py build
 deploy:
   provider: releases
   api_key:
