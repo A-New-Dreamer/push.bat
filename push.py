@@ -17,13 +17,11 @@ else:
         run('git init')
     elif choose == 'yes':
         run('git init')
-    else:
-        run('pause')
 run('git add .')
 print('请输入提交理由')
 commit = input('提交理由: ')
 if(commit == ''):
     run('git commit -m update')
 else:
-    run(('git commit -m',commit))
+    os.system(('git commit -m '+commit))
 run('git push')
