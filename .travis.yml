@@ -5,7 +5,9 @@ python:
 - 3.5-dev
 - '3.6'
 - 3.6-dev
-os: windows
+os: 
+- windows
+- linux
 before_deploy:
 - pip install pyinstaller
 - pyinstaller -F push.py
