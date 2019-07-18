@@ -1,7 +1,11 @@
 import os
 import sys
 import time
-file = open('./temp/shell.cmd','w')
+try:
+    file = open('./temp/shell.cmd','w')
+except FileNotFoundError:
+    os.mkdir('./temp')
+    file = open('./temp/shell.cmd','w')
 file.write('cd ' + os.getcwd() + '\n')
 try:
     if sys.argv[1] == 'push':

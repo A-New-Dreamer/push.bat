@@ -1,4 +1,4 @@
 cd G:\my\mine\push.bat
 git add .
-git commit -m "fix bugs"
+git commit -m "remove temp"
 git push
