@@ -11,8 +11,9 @@ os:
 matrix:
   allow_failures:
     - os: windows
-before_deploy:
+script:
 - pip install pyinstaller
+before_deploy:
 - pyinstaller -F push.py
 deploy:
   provider: releases
