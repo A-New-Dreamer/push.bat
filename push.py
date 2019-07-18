@@ -8,22 +8,21 @@ except FileNotFoundError:
     file = open('./temp/shell.cmd','w')
 file.write('cd ' + os.getcwd() + '\n')
 try:
-    if sys.argv[1] == 'push':
-        if sys.argv[2] == 'tags':
-            print('push tags\n')
-            file.write('git push --tags\n')
-        elif sys.argv[2] == 'all':
-            file.write('git add .\n')
-            file.write('git commit -m "update"\n')
-            print('push commit')
-            file.write('git push\n')
-            print('push tags')
-            file.write('git push --tags\n')
-        elif sys.argv[2] == 'commit':
-            print('push commit')
-            file.write('git add .\n')
-            file.write('git commit -m "update"\n')
-            file.write('git push\n')
+    if sys.argv[1] == 'tags':
+        print('push tags\n')
+        file.write('git push --tags\n')
+    elif sys.argv[1] == 'all':
+        file.write('git add .\n')
+        file.write('git commit -m "update"\n')
+        print('push commit')
+        file.write('git push\n')
+        print('push tags')
+        file.write('git push --tags\n')
+    elif sys.argv[1] == 'commit':
+        print('push commit')
+        file.write('git add .\n')
+        file.write('git commit -m "update"\n')
+        file.write('git push\n')
 except IndexError:
     if(os.path.exists(os.getcwd()+'\.git')):
         pass
