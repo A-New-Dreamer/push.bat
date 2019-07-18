@@ -1,5 +1,6 @@
 language: python
 python:
+- '2.7'
 - '3.4'
 - '3.5'
 - 3.5-dev
@@ -14,10 +15,10 @@ script:
 deploy:
   provider: pypi
   user: Mryan
-  password:
-    secure: b73K2nMUpZ68hdzCnyWxIHbjpRWmZ7/7DihQgff/DP+SEO2ZZMnq/Vf7CMvMVC0Stx8KRCMhyMn6wjeVK32qoUT+jswu2qhFusdP7VwB+wAONBsPSm5fQnEAWMwh1z4ov/IzsAdNpy05G4qYTtvN2fiqFgrmZb8R1EP5HmYlaJvyJBrPdsQ734DJ+84bvjsLh2eKhHZFCk0Ys3pLNmV1C1OVGTgjjtj98dAR46H6MKuzlpk0AdAf9ejq2knhds3J5BEx/JP50tSrl6YsdzftQNJWvvBoIbQeNx2TOqARVt9uVq3iVJ5L5iQ2uqs5cOwKKVe6OhwDpNR6CQCSp4SvfAOyE9IiHkeSsMK0X47Q0Lf2mg/CGQZgHAYlLuj1su5r4d251ro8piy4azn5qOqYGFnNxrxgkHaarXkcd7XEsBYkFBlLzjrOj72aAC2Y/iEFRwU7CmpXUEwxkX837F1eEHL89fsyKrQwi/K5SIsQZ4f4uGfAKrnfutl18xXkInmQY05C0RXdXdxPDV0I7TMVde3GKq808rIJb+paoWpQTaVZZU9ozXeM57Bj0GM6xa+XbCqFm8Bg0Vp/JgDdPUul3KX/LQA8x2jQwdXKuMB2/ikx4r21yMxQFJF/3/rUS05wJSrsKEtDvvcBG3EEG12xmPEq/48VjbuSoRWoh5UjrDE=
+  password: ${password}
   skip_cleanup: true
   on:
+    python: 2.7
     tags: true
 notifications:
   webhooks: https://oapi.dingtalk.com/robot/send?access_token=bff998e4df4150d1c627438c992459b1a5542f37217f11ba2bea01adfe829f7a
