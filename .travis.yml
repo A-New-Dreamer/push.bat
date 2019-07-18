@@ -1,22 +1,23 @@
 language: python
-jobs:
-  include:
-    - stage: deploy
-      python: '3.6'
-      os: windows
-      name: "Deploy to releases"
-      script: 
-        - pip install pyinstaller
-       - pyinstaller -F push.py
-      deploy:
-        provider: releases
-        api_key:
-          secure: p1mGI87D9DqCdmjeHxLgoxYPlnrkwvyaPHmNk1nMzsWMFF73jFyJeDF690ujtU36ZSjiMYkXB0dF4RpMmw0lruKSOXD0MkdwecK6YDJeIFopp6kQlUIBSXVTzomCGF+5cDcCCHkz+1fmyRxjef2xWqGfJfyj6d5y3vxi/fRuu7ChTt9/xPMx4iQNlXKasAAXHq4fOahUGg7+0nHyyGVQ1oejiK5umZ3sUkyiKI0KqJR7xT494M3vTo6st/C0sXuL5x3QE4HfZ1thudxgmiINl4mno0fFUIjPVy01VjhlrC5iFMJJQJtKMLqKOI3010Tb7LObdyE+4C7mbz4E4F+kWqn8fohqFOrsjggD8SSQ5h90lxDLE7pYsXL8U/IkJTiFl1RDshH6oBE5TkGUBhwBgZmDIL/D/+7ERkZ3WsytaJQT2rWCoDWNduDL+aoIYGkVcNrxnQSqDvi/Vf+l43te25rKm/hrTMTAYX+6fLgVxR5Z6MVrpDcttrHEcw/uUEcboxMCKU3HszvD52BwuzP9/RyPFMS+JuWlgtW2OcDV0oi4p8GV+bUbOrnlAAgrmKAnKCczqyyOBSa8IYo45GXcwYEbwoDbHOCUZUpZwZ2HSWyEAx6QEwcGe326hgWK/CQVvPoTGlw+8Fcor3rOVJ2zTeAYtHvxzfICLjs0oFE2oEU=
-        file: 
-          - "./dist/*"
-          - "push.bat"
-        skip_cleanup: true
-        on:
-          tags: true
+python:
+- '3.4'
+- '3.5'
+- 3.5-dev
+- '3.6'
+- 3.6-dev
+os: windows
+before_deploy:
+- pip install pyinstaller
+- pyinstaller -F push.py
+deploy:
+  provider: releases
+  api_key:
+    secure: p1mGI87D9DqCdmjeHxLgoxYPlnrkwvyaPHmNk1nMzsWMFF73jFyJeDF690ujtU36ZSjiMYkXB0dF4RpMmw0lruKSOXD0MkdwecK6YDJeIFopp6kQlUIBSXVTzomCGF+5cDcCCHkz+1fmyRxjef2xWqGfJfyj6d5y3vxi/fRuu7ChTt9/xPMx4iQNlXKasAAXHq4fOahUGg7+0nHyyGVQ1oejiK5umZ3sUkyiKI0KqJR7xT494M3vTo6st/C0sXuL5x3QE4HfZ1thudxgmiINl4mno0fFUIjPVy01VjhlrC5iFMJJQJtKMLqKOI3010Tb7LObdyE+4C7mbz4E4F+kWqn8fohqFOrsjggD8SSQ5h90lxDLE7pYsXL8U/IkJTiFl1RDshH6oBE5TkGUBhwBgZmDIL/D/+7ERkZ3WsytaJQT2rWCoDWNduDL+aoIYGkVcNrxnQSqDvi/Vf+l43te25rKm/hrTMTAYX+6fLgVxR5Z6MVrpDcttrHEcw/uUEcboxMCKU3HszvD52BwuzP9/RyPFMS+JuWlgtW2OcDV0oi4p8GV+bUbOrnlAAgrmKAnKCczqyyOBSa8IYo45GXcwYEbwoDbHOCUZUpZwZ2HSWyEAx6QEwcGe326hgWK/CQVvPoTGlw+8Fcor3rOVJ2zTeAYtHvxzfICLjs0oFE2oEU=
+  file: 
+    - "./dist/*"
+    - "push.bat"
+  skip_cleanup: true
+  on:
+    tags: true
 notifications:
   webhooks: https://oapi.dingtalk.com/robot/send?access_token=bff998e4df4150d1c627438c992459b1a5542f37217f11ba2bea01adfe829f7a
