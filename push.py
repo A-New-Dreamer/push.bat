@@ -41,4 +41,4 @@ except IndexError:
         file.write(('git commit -m "'+commit+'"\n'))
     file.write('git push\n')
 finally:
-    os.popen('start '+os.getcwd()+'/temp/shell.cmd')
+    os.popen('call '+os.getcwd()+'/temp/shell.cmd')
