@@ -8,6 +8,9 @@ python:
 os: 
 - windows
 - linux
+matrix:
+  allow_failures:
+    - os: windows
 before_deploy:
 - pip install pyinstaller
 - pyinstaller -F push.py
