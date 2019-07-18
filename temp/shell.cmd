@@ -1,4 +1,4 @@
 cd G:\my\mine\push.bat
 git add .
-git commit -m update
+git commit -m "add popen"
 git push
