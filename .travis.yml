@@ -6,11 +6,7 @@ python:
 - '3.6'
 - 3.6-dev
 os:
-- windows
 - linux
-matrix:
-  allow_failures:
-  - os: windows
 script:
 - Python setup.py build
 deploy:
