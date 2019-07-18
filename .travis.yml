@@ -7,8 +7,7 @@ python:
 - 3.6-dev
 os:
 - linux
-script:
-- Python setup.py build
+script: true
 deploy:
   provider: pypi
   user: Mryan
