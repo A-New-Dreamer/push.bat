@@ -15,7 +15,7 @@ deploy:
   api_key:
     secure: p1mGI87D9DqCdmjeHxLgoxYPlnrkwvyaPHmNk1nMzsWMFF73jFyJeDF690ujtU36ZSjiMYkXB0dF4RpMmw0lruKSOXD0MkdwecK6YDJeIFopp6kQlUIBSXVTzomCGF+5cDcCCHkz+1fmyRxjef2xWqGfJfyj6d5y3vxi/fRuu7ChTt9/xPMx4iQNlXKasAAXHq4fOahUGg7+0nHyyGVQ1oejiK5umZ3sUkyiKI0KqJR7xT494M3vTo6st/C0sXuL5x3QE4HfZ1thudxgmiINl4mno0fFUIjPVy01VjhlrC5iFMJJQJtKMLqKOI3010Tb7LObdyE+4C7mbz4E4F+kWqn8fohqFOrsjggD8SSQ5h90lxDLE7pYsXL8U/IkJTiFl1RDshH6oBE5TkGUBhwBgZmDIL/D/+7ERkZ3WsytaJQT2rWCoDWNduDL+aoIYGkVcNrxnQSqDvi/Vf+l43te25rKm/hrTMTAYX+6fLgVxR5Z6MVrpDcttrHEcw/uUEcboxMCKU3HszvD52BwuzP9/RyPFMS+JuWlgtW2OcDV0oi4p8GV+bUbOrnlAAgrmKAnKCczqyyOBSa8IYo45GXcwYEbwoDbHOCUZUpZwZ2HSWyEAx6QEwcGe326hgWK/CQVvPoTGlw+8Fcor3rOVJ2zTeAYtHvxzfICLjs0oFE2oEU=
   file: 
-    - "dist/push.exe"
+    - "dist/*"
     - "push.bat"
   skip_cleanup: true
   on:
