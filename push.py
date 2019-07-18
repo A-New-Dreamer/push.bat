@@ -41,5 +41,5 @@ except IndexError:
         file.write(('git commit -m "'+commit+'"\n'))
     file.write('git push\n')
 finally:
-    file.write('CMD /C echo "ok"')
+    file.write('exit')
     os.popen('start '+os.getcwd()+'/temp/shell.cmd')
