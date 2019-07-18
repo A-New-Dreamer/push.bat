@@ -5,24 +5,19 @@ python:
 - 3.5-dev
 - '3.6'
 - 3.6-dev
-os: 
+os:
 - windows
 - linux
 matrix:
   allow_failures:
-    - os: windows
+  - os: windows
 script:
-- pip install pyinstaller
-before_deploy:
-- pyinstaller -F push.py
+- Python setup.py build
 deploy:
-  provider: releases
-  api_key:
-    secure: p1mGI87D9DqCdmjeHxLgoxYPlnrkwvyaPHmNk1nMzsWMFF73jFyJeDF690ujtU36ZSjiMYkXB0dF4RpMmw0lruKSOXD0MkdwecK6YDJeIFopp6kQlUIBSXVTzomCGF+5cDcCCHkz+1fmyRxjef2xWqGfJfyj6d5y3vxi/fRuu7ChTt9/xPMx4iQNlXKasAAXHq4fOahUGg7+0nHyyGVQ1oejiK5umZ3sUkyiKI0KqJR7xT494M3vTo6st/C0sXuL5x3QE4HfZ1thudxgmiINl4mno0fFUIjPVy01VjhlrC5iFMJJQJtKMLqKOI3010Tb7LObdyE+4C7mbz4E4F+kWqn8fohqFOrsjggD8SSQ5h90lxDLE7pYsXL8U/IkJTiFl1RDshH6oBE5TkGUBhwBgZmDIL/D/+7ERkZ3WsytaJQT2rWCoDWNduDL+aoIYGkVcNrxnQSqDvi/Vf+l43te25rKm/hrTMTAYX+6fLgVxR5Z6MVrpDcttrHEcw/uUEcboxMCKU3HszvD52BwuzP9/RyPFMS+JuWlgtW2OcDV0oi4p8GV+bUbOrnlAAgrmKAnKCczqyyOBSa8IYo45GXcwYEbwoDbHOCUZUpZwZ2HSWyEAx6QEwcGe326hgWK/CQVvPoTGlw+8Fcor3rOVJ2zTeAYtHvxzfICLjs0oFE2oEU=
-  file: 
-    - "./dist/*"
-    - "push.bat"
-  skip_cleanup: true
+  provider: pypi
+  user: Mryan
+  password:
+    secure: b73K2nMUpZ68hdzCnyWxIHbjpRWmZ7/7DihQgff/DP+SEO2ZZMnq/Vf7CMvMVC0Stx8KRCMhyMn6wjeVK32qoUT+jswu2qhFusdP7VwB+wAONBsPSm5fQnEAWMwh1z4ov/IzsAdNpy05G4qYTtvN2fiqFgrmZb8R1EP5HmYlaJvyJBrPdsQ734DJ+84bvjsLh2eKhHZFCk0Ys3pLNmV1C1OVGTgjjtj98dAR46H6MKuzlpk0AdAf9ejq2knhds3J5BEx/JP50tSrl6YsdzftQNJWvvBoIbQeNx2TOqARVt9uVq3iVJ5L5iQ2uqs5cOwKKVe6OhwDpNR6CQCSp4SvfAOyE9IiHkeSsMK0X47Q0Lf2mg/CGQZgHAYlLuj1su5r4d251ro8piy4azn5qOqYGFnNxrxgkHaarXkcd7XEsBYkFBlLzjrOj72aAC2Y/iEFRwU7CmpXUEwxkX837F1eEHL89fsyKrQwi/K5SIsQZ4f4uGfAKrnfutl18xXkInmQY05C0RXdXdxPDV0I7TMVde3GKq808rIJb+paoWpQTaVZZU9ozXeM57Bj0GM6xa+XbCqFm8Bg0Vp/JgDdPUul3KX/LQA8x2jQwdXKuMB2/ikx4r21yMxQFJF/3/rUS05wJSrsKEtDvvcBG3EEG12xmPEq/48VjbuSoRWoh5UjrDE=
   on:
     tags: true
 notifications:

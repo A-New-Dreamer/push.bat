@@ -7,5 +7,4 @@ setup(
         author_email='A2564011261@163.com',  # 作者邮箱
         url='github.com:Mryan2005/push.bat.git',      # 包的主页
         license='MIT License',
-        scripts=['push.py', 'dist/push.exe']
 )
