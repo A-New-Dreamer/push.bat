@@ -1,45 +1,41 @@
 import os
 import sys
 import time
+file = open('./temp/shell.cmd','w')
+file.write('cd ' + os.getcwd() + '\n')
 try:
     if sys.argv[1] == 'push':
         if sys.argv[2] == 'tags':
-            print('push tags')
-            os.system('git push --tags')
+            print('push tags\n')
+            file.write('git push --tags\n')
         elif sys.argv[2] == 'all':
-            os.system('git add .')
-            os.system('git commit -m "update"')
+            file.write('git add .\n')
+            file.write('git commit -m "update"\n')
             print('push commit')
-            os.system('git push')
+            file.write('git push\n')
             print('push tags')
-            os.system('git push --tags')
+            file.write('git push --tags\n')
         elif sys.argv[2] == 'commit':
             print('push commit')
-            os.system('git add .')
-            os.system('git commit -m "update"')
-            os.system('git push')
+            file.write('git add .\n')
+            file.write('git commit -m "update"\n')
+            file.write('git push\n')
 except IndexError:
-    def run(command):
-        finish = os.system(command)
-        if(finish == 0):
-            pass
-        else:
-            print('系统错误')
-            os.system('pause')
-            os._exit(0)
-    if(os.path.exists('./.git')):
+    if(os.path.exists(os.getcwd()+'\.git')):
         pass
     else:
         choose = input('未检测到.git文件夹，是否生成(yes or no) |yes|')
         if choose == 'y':
-            run('git init')
+            file.write('git init\n')
         elif choose == 'yes':
-            run('git init')
-    run('git add .')
+            file.write('git init\n')
+    file.write('git add .\n')
     print('请输入提交理由')
     commit = input('提交理由: ')
     if(commit == ''):
-        run('git commit -m update')
+        file.write('git commit -m update\n')
     else:
-        os.system(('git commit -m "'+commit+'"'))
-    run('git push')
+        file.write(('git commit -m "'+commit+'"\n'))
+    file.write('git push\n')
+finally:
+    os.popen('start '+os.getcwd()+'/temp/shell.cmd')
