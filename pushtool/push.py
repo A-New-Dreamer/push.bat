@@ -3,10 +3,10 @@ import sys
 import time
 def main():
     try:
-        file = open('./temp/shell.sh','w')
+        file = open('./temp/shell.bat','w')
     except FileNotFoundError:
         os.mkdir('./temp')
-        file = open('./temp/shell.sh','w')
+        file = open('./temp/shell.bat','w')
     file.write('cd ' + os.getcwd() + '\n')
     try:
         if sys.argv[1] == 'tags':
@@ -43,4 +43,4 @@ def main():
         file.write('git push\n')
     finally:
         file.write('exit')
-        os.popen('start '+os.getcwd()+'/temp/shell.sh | cd'+os.getcwd()+' | rmdir /s/q temp')
+        os.popen('start '+os.getcwd()+'/temp/shell.bat | cd'+os.getcwd()+' | rmdir /s/q temp')
