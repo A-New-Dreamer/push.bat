@@ -11,23 +11,14 @@ os:
 jobs:
   include:
     - stage: test
+      install: skip
       script: 
       - pip install setuptools
       - python setup.py check
       - python setup.py test
-    - stage: deploy GitHub
-      python: '3.7'
-      script: 
-      - pip install setuptools
-      - python setup.py sdist build
-      deploy:
-        provider: releases
-        api_key: $GITHUB_OAUTH_TOKEN
-        skip_cleanup: true
-        on:
-          tags: true
     - stage: deploy Pypi
       python: '3.7'
+      install: skip
       script: 
       - rm -rf ./build
       - rm -rf ./dist
