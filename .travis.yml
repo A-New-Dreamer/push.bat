@@ -11,13 +11,15 @@ os:
 jobs:
   include:
     - stage: test
-      script: pip install setuptools
-      script: python setup.py check
-      script: python setup.py test
+      script: 
+      - pip install setuptools
+      - python setup.py check
+      - python setup.py test
     - stage: deploy GitHub
       python: '3.7'
-      script: pip install setuptools
-      script: python setup.py sdist build
+      script: 
+      - pip install setuptools
+      - python setup.py sdist build
       deploy:
         provider: releases
         api_key: $GITHUB_OAUTH_TOKEN
@@ -26,10 +28,11 @@ jobs:
           tags: true
     - stage: deploy Pypi
       python: '3.7'
-      script: rm -rf ./build
-      script: rm -rf ./dist
-      script: pip install setuptools
-      script: python setup.py sdist build
+      script: 
+      - rm -rf ./build
+      - rm -rf ./dist
+      - pip install setuptools
+      - python setup.py sdist build
       deploy:
         provider: pypi
         user: Mryan
