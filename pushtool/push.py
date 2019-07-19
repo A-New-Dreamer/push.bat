@@ -28,7 +28,7 @@ def main():
         if(os.path.exists(os.getcwd()+'\.git')):
             pass
         else:
-            choose = input('未检测到.git文件夹，是否生成(yes or no) |yes|')
+            choose = input('未检测到.git文件夹，是否生成(yes or no) |yes| ')
             if choose == 'y':
                 file.write('git init\n')
             elif choose == 'yes':
@@ -43,4 +43,4 @@ def main():
         file.write('git push\n')
     finally:
         file.write('exit')
-        os.popen('start '+os.getcwd()+'/temp/shell.bat | cd'+os.getcwd()+' | rmdir /s/q temp')
+        os.popen('start '+os.getcwd()+'/temp/shell.bat && cd'+os.getcwd()+' && rmdir /s/q temp')
