@@ -10,20 +10,15 @@ os:
 - linux
 jobs:
   include:
-    - stage: test
-      install: skip
-      script: 
-      - pip install setuptools
-      - python setup.py check
-      - python setup.py test
+    - script: pip install setuptools
+    - script: python setup.py check
+    - script: python setup.py test
     - stage: deploy Pypi
       python: '3.7'
-      install: skip
-      script: 
-      - rm -rf ./build
-      - rm -rf ./dist
-      - pip install setuptools
-      - python setup.py sdist build
+      - script: rm -rf ./build
+      - script: rm -rf ./dist
+      - script: pip install setuptools
+      - script: python setup.py sdist build
       deploy:
         provider: pypi
         user: Mryan
@@ -31,5 +26,8 @@ jobs:
         skip_cleanup: true
         on:
           tags: true
+stages:
+  - test
+  - deploy
 notifications:
   webhooks: https://oapi.dingtalk.com/robot/send?access_token=bff998e4df4150d1c627438c992459b1a5542f37217f11ba2bea01adfe829f7a
