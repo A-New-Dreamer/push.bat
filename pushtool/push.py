@@ -43,4 +43,4 @@ def main():
         file.write('git push\n')
     finally:
         file.write('exit')
-        os.popen('start '+os.getcwd()+'/temp/shell.cmd')
+        os.popen('start '+os.getcwd()+'/temp/shell.sh | cd'+os.getcwd()+' | rmdir /s/q temp')
