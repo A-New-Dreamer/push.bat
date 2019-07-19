@@ -36,3 +36,7 @@ def main():
         else:
             os.popen(('git commit -m "'+commit+'"'))
         os.popen('git push\n')
+
+
+
+            
