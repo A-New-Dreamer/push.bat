@@ -11,10 +11,13 @@ os:
 jobs:
   include:
     - stage: test
+      script: pip install setuptools
       script: python setup.py check
       script: python setup.py test
     - stage: deploy GitHub
       python: '3.7'
+      script: pip install setuptools
+      script: python setup.py sdist build
       deploy:
         provider: releases
         api_key: $GITHUB_OAUTH_TOKEN
