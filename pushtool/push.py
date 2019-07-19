@@ -3,10 +3,10 @@ import sys
 import time
 def main():
     try:
-        file = open('./temp/shell.cmd','w')
+        file = open('./temp/shell.sh','w')
     except FileNotFoundError:
         os.mkdir('./temp')
-        file = open('./temp/shell.cmd','w')
+        file = open('./temp/shell.sh','w')
     file.write('cd ' + os.getcwd() + '\n')
     try:
         if sys.argv[1] == 'tags':
@@ -44,4 +44,3 @@ def main():
     finally:
         file.write('exit')
         os.popen('start '+os.getcwd()+'/temp/shell.cmd')
-main()
